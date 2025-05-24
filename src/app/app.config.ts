@@ -12,10 +12,10 @@ import { provideHttpClient } from '@angular/common/http';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
-    provideEffects(effectArray),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
     provideStore(ROOT_REDUCER, { metaReducers }),
+    provideEffects(effectArray),
     provideHttpClient(),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    provideRouter(routes),
   ]
 };
