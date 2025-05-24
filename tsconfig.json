@@ -6,7 +6,17 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@Components/*": ["src/app/components/*"]
+      "@Components/*": ["src/app/components/*"],
+      "@Pages/*": ["src/app/pages/*"],
+      "@Interfaces/*": ["src/app/interfaces/*"],
+      "@Actions/*": ["src/app/state/actions/*"],
+      "@States/*": ["src/app/state/states/*"],
+      "@Effects/*": ["src/app/state/effects/*"],
+      "@Reducers/*": ["src/app/state/reducers/*"],
+      "@Selectors/*": ["src/app/state/selectors/*"],
+      "@Services/*": ["src/app/services/*"],
+      "@Helpers/*": ["src/app/helpers/*"],
+      "@Environments/*": ["environments/*"]
     },
     "outDir": "./dist/out-tsc",
     "strict": true,
