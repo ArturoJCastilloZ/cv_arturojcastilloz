@@ -1,3 +1,16 @@
-<p>
-  about works!
-</p>
+<div class="text-white md:p-[50px] p-[10px]" id="about">
+    <div class="grid laptop:grid-cols-2 grid-cols-1 items-center">
+        <div class="flex justify-center" data-aos="zoom-in" data-aos-duration="2000">
+            <img class="md:w-[420px] w-[200px] md:rounded-full rounded-3xl" src="assets/img1.png" alt="about">
+        </div>
+        <div class="md:py-[15px] py-[15px]" data-aos="fade-up" data-aos-anchor-placement="top-center"
+            data-aos-duration="2000">
+            <h2 class="md:text-5xl text-[2rem] tracking-[10px] font-bold text-center text-white uppercase">Sobre mi</h2>
+            <span class='line'></span>
+            @for (item of aboutData; track $index) {
+            <p class="font-bold md:text-xl text-lg text-center text-white">{{ item?.Profesion }}</p>
+            <p class="md:text-xl text-lg text-white p-2 italic">{{ item?.Descripcion }}</p>
+            }
+        </div>
+    </div>
+</div>

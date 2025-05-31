@@ -1,7 +1,20 @@
 <footer class="bg-zinc-950 rounded-lg shadow-sm m-4">
     <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-        <div class="sm:flex sm:items-center sm:justify-between">
-            <img src="assets/img2.png" class="h-8" alt="Flowbite Logo" />
+        <div class="laptop:flex sm:items-center sm:justify-between">
+            <!-- <img src="assets/img2.png" class="h-8" alt="Flowbite Logo" /> -->
+             <div class="laptop:tracking-[20px] tracking-[30px]">
+                 @for (item of _COMMON.footerOptions; track $index) {
+                     @if (item?.Titulo === 'Descargar CV') {
+                         <span  (click)="downloadCV()" class="m-0 cursor-pointer hover:text-cyan-500 transition duration-500">
+                             <i class="text-[25px]" [ngClass]="item?.Icono"></i>
+                         </span>
+                     } @else {
+                         <a href="{{item?.Url}}" target="_blank" class="m-0">
+                             <i class="text-[25px] md:cursor-pointer cursor-default" [ngClass]="item?.Icono"></i>
+                         </a>
+                     }
+                 }
+             </div>
             <span class="self-center text-sm tracking-[0.15em] whitespace-nowrap text-white">
                 Herramientas utilizadas: <span class="text-slate-500 font-bold">Angular | Typescript | TailwindCSS | NgRx</span>
             </span>
