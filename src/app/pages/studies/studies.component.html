@@ -1,7 +1,7 @@
-<div class="container mx-auto text-white p-10" id="studies">
+<section class="text-white p-10 bg-black" id="studies">
     <h2 class="md:text-5xl text-[2rem] tracking-[10px] font-bold text-center text-white uppercase">Mi Educación</h2>
     <span class='line'></span>
-    <div class="grid md:grid-cols-2 grid-cols-1 gap-[20px] pt-5 text-center">
+    <div class="container mx-auto grid md:grid-cols-2 grid-cols-1 gap-[20px] pt-5 text-center">
         @for (item of studiesData; track $index) {
             <a href="https://utsc.edu.mx/" target="_blank" 
                 class="flex flex-col items-center border rounded-lg shadow-sm laptop:flex-row max-w-xl laptop:max-w-full border-gray-700 bg-gray-800">
@@ -22,4 +22,4 @@
             </a>
         }
     </div>
-</div>
+</section>
