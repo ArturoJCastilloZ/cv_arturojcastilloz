@@ -84,3 +84,8 @@ export const GET_JOBS_ERROR = createAction(
     '[JOBS] GET_JOBS_ERROR',
     props<{ error: any }>()
 );
+
+export const SHOW_SPINNER = createAction(
+    '[SPINNER] SHOW_SPINNER',
+    props<{ loading: boolean }>()
+);

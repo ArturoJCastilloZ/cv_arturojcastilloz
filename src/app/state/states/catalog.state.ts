@@ -7,4 +7,5 @@ export interface CatalogState {
     hero: IHero[];
     studies: IStudies[];
     jobs: IJobs[];
+    showSpinner: boolean;
 }

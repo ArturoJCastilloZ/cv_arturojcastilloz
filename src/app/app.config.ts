@@ -7,15 +7,17 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { ROOT_REDUCER, metaReducers } from './state/states/app.state';
 import { effectArray } from '@Effects/index';
-import { provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { CustomJwtInterceptor } from '@Helpers/custom.jwt.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideStore(ROOT_REDUCER, { metaReducers }),
-    provideEffects(effectArray),
-    provideHttpClient(),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-    provideRouter(routes),
-  ]
+    providers: [
+        provideZoneChangeDetection({ eventCoalescing: true }),
+        provideStore(ROOT_REDUCER, { metaReducers }),
+        provideEffects(effectArray),
+        provideHttpClient(withInterceptorsFromDi()),
+        { provide: HTTP_INTERCEPTORS, useClass: CustomJwtInterceptor, multi: true },
+        provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+        provideRouter(routes),
+    ]
 };

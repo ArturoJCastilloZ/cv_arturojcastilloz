@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Observable } from 'rxjs';
+import { IAbout } from '@Interfaces/global.interface';
 import { CommonService } from '@Services/common.service';
 import { DispatcherServices } from '@Services/dispatchers.service';
-import { IAbout } from '@Interfaces/global.interface';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-about',
@@ -46,7 +46,6 @@ export class AboutComponent implements OnInit {
     }
 
     handleGetAboutSuccess(action: any) {
-        this._COMMON.shouldShowSpinner(false);
         this.aboutData = action;
         this.srcImage = this.aboutData?.[0]?.Imagen;
         this.profesion = this.aboutData?.[0]?.Profesion;

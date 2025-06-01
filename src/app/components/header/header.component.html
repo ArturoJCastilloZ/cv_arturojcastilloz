@@ -45,11 +45,11 @@
             </div>
             <div class="mt-6 flow-root">
                 <div class="-my-6 divide-y divide-gray-500/10">
-                    <div class="space-y-2 py-6">
+                    <div class="sm:space-y-2 space-y-14 text-center py-6">
                         @for (item of menuOptions; track $index) {
                             @if (item._id !== 5) {
                                 <a [routerLink]="item.Enlace" (click)="handleChangeMenu()"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-white font-semibold hover:bg-gray-50 hover:text-slate-950">{{item?.Titulo}}</a>
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-white font-semibold hover:bg-gray-50 hover:text-slate-950 text-4xl">{{item?.Titulo}}</a>
                             }
                         }
                     </div>

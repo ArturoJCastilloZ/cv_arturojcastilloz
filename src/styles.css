@@ -3,6 +3,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.app {
+    display: grid;
+    max-height: 100dvh;
+    grid-template-rows:
+        auto 1fr auto;
+}
+
 html {
     scroll-behavior: smooth;
 }

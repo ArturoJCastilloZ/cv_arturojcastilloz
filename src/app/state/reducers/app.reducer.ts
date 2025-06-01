@@ -1,5 +1,12 @@
 import { createReducer, on } from "@ngrx/store";
-import { GET_ABOUT_SUCCESS, GET_HEADERS_SUCCESS, GET_HERO_SUCCESS, GET_IMAGES_SUCCESS, GET_JOBS_SUCCESS, GET_STUDIES_SUCCESS } from "@Actions/global.actions";
+import { 
+    GET_ABOUT_SUCCESS,
+    GET_HEADERS_SUCCESS,
+    GET_HERO_SUCCESS,
+    GET_IMAGES_SUCCESS,
+    GET_JOBS_SUCCESS,
+    GET_STUDIES_SUCCESS, SHOW_SPINNER 
+} from "@Actions/global.actions";
 import { CatalogState } from "@States/catalog.state";
 
 export const initialState: CatalogState = {
@@ -8,7 +15,8 @@ export const initialState: CatalogState = {
     images: [],
     hero: [],
     studies: [],
-    jobs: []
+    jobs: [],
+    showSpinner: false
 }
 
 export const catalogReducer = createReducer(
@@ -19,7 +27,10 @@ export const catalogReducer = createReducer(
     })),
     on(GET_ABOUT_SUCCESS, (state, {response}) => ({
         ...state,
-        about: response
+        about: response,
+        studies: [],
+        hero: [],
+        jobs: []
     })),
     on(GET_IMAGES_SUCCESS, (state, {response}) => ({
         ...state,
@@ -27,14 +38,27 @@ export const catalogReducer = createReducer(
     })),
     on(GET_HERO_SUCCESS, (state, {response}) => ({
         ...state,
-        hero: response
+        hero: response,
+        studies: [],
+        about: [],
+        jobs: []
     })),
     on(GET_STUDIES_SUCCESS, (state, {response}) => ({
         ...state,
-        studies: response
+        about: [],
+        studies: response,
+        hero: [],
+        jobs: []
     })),
     on(GET_JOBS_SUCCESS, (state, {response}) => ({
         ...state,
+        about: [],
+        studies: [],
+        hero: [],
         jobs: response
+    })),
+    on(SHOW_SPINNER, (state, {loading}) => ({
+        ...state,
+        showSpinner: loading
     })),
 );

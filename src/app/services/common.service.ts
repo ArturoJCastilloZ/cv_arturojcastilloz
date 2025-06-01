@@ -2,7 +2,7 @@ import { DestroyRef, inject, Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { selectAboutData, selectHeroData, selectImages, selectJobs, selectMenuOptions, selectStudies } from '@Selectors/app.selector';
+import { selectAboutData, selectHeroData, selectImages, selectJobs, selectMenuOptions, selectStudies, showSpinner } from '@Selectors/app.selector';
 import { IAbout, IHero, IJobs, IMenu, IStudies } from '@Interfaces/global.interface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
@@ -18,6 +18,7 @@ export class CommonService {
     menuOption$ = new Observable<IMenu[]>();
     pathImages: { [key: string]: string } = {};
     showSpinner = signal<boolean>(false);
+    showSpinner$ = new Observable<boolean>();
 
     footerOptions = [
         {
@@ -65,6 +66,7 @@ export class CommonService {
         this.jobsData$ = this._STORE.select(selectJobs);
         this.imagesUrl$ = this._STORE.select(selectImages);
         this.menuOption$ = this._STORE.select(selectMenuOptions);
+        this.showSpinner$ = this._STORE.select(showSpinner);
 
         this._STORE.select(selectImages).pipe(
             takeUntilDestroyed(this._DESTROYREF)
@@ -76,10 +78,6 @@ export class CommonService {
                 this.pathImages[relativeRoutes.replaceAll('/assets/', '')] = url;
             })
         });
-    }
-
-    shouldShowSpinner(isLoading: boolean) {
-        this.showSpinner.set(isLoading);
     }
     
     navigate(route: string) {
