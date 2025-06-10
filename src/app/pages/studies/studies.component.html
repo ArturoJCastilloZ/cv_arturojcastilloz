@@ -1,25 +1,27 @@
 <section class="text-white p-10 bg-black" id="studies">
-    <h2 class="md:text-5xl text-[2rem] tracking-[10px] font-bold text-center text-white uppercase">Mi Educación</h2>
-    <span class='line'></span>
-    <div class="container mx-auto grid md:grid-cols-2 grid-cols-1 gap-[20px] pt-5 text-center">
-        @for (item of studiesData; track $index) {
-            <a href="https://utsc.edu.mx/" target="_blank" 
-                class="flex flex-col items-center border rounded-lg shadow-sm laptop:flex-row max-w-xl laptop:max-w-full border-gray-700 bg-gray-800">
-                <img 
-                    class="object-cover w-full rounded-t-lg laptop:h-auto laptop:w-48 laptop:rounded-none laptop:rounded-s-lg"
-                    loading="lazy" 
-                    src="assets/utsc/UTES-01.png"
-                    srcset="assets/utsc/UTES-01-400x207.png 400w, 
-                        assets/utsc/UTES-01-600x311.png 600w,
-                        assets/utsc/UTES-01-800x415.png 800w,
-                        assets/utsc/UTES-01.png 4073w"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1024px" alt="">
-                <div class="flex flex-col justify-between p-4 leading-normal">
-                    <h4 class="mb-2 text-2xl font-bold tracking-tight text-blue-400">{{ item?.Escuela }}</h4>
-                    <h6 class="mb-2 text-xl font-semibold tracking-tight text-white italic"> {{ item?.Titulo }}</h6>
-                    <p class="font-normal text-lg text-gray-700 dark:text-gray-400">{{ item?.Inicio }} - {{ item?.Fin }}</p>
-                </div>
-            </a>
-        }
+    <div class="laptop:h-[100vh] h-full">
+        <h2 class="md:text-5xl text-[2rem] tracking-[10px] font-bold text-center text-white uppercase">Mi Educación</h2>
+        <span class='line'></span>
+        <div class="container mx-auto grid md:grid-cols-2 grid-cols-1 gap-[20px] pt-5 text-center">
+            @for (item of studiesData; track $index) {
+                <a href="https://utsc.edu.mx/" target="_blank" 
+                    class="flex flex-col items-center border rounded-lg shadow-sm laptop:flex-row max-w-xl laptop:max-w-full border-gray-700 bg-gray-800">
+                    <img 
+                        class="object-cover w-full rounded-t-lg laptop:h-auto laptop:w-48 laptop:rounded-none laptop:rounded-s-lg"
+                        loading="lazy" 
+                        src="assets/utsc/UTES-01.png"
+                        srcset="assets/utsc/UTES-01-400x207.png 400w, 
+                            assets/utsc/UTES-01-600x311.png 600w,
+                            assets/utsc/UTES-01-800x415.png 800w,
+                            assets/utsc/UTES-01.png 4073w"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1024px" alt="">
+                    <div class="flex flex-col justify-between p-4">
+                        <h4 class="mb-2 text-2xl font-bold tracking-tight text-blue-400">{{ item?.Escuela }}</h4>
+                        <h6 class="mb-2 text-xl font-semibold tracking-tight text-white italic"> {{ item?.Titulo }}</h6>
+                        <p class="font-normal text-lg text-gray-700">{{ item?.Inicio }} - {{ item?.Fin }}</p>
+                    </div>
+                </a>
+            }
+        </div>
     </div>
 </section>
