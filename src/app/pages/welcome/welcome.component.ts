@@ -53,7 +53,7 @@ export class WelcomeComponent implements OnInit {
 
     downloadCV() {
         const link = document.createElement('a');
-        link.href = '/assets/resume.pdf';
+        link.href = '/assets/arturo-castillo-resume.pdf';
         link.download = 'arturo-castillo-resume.pdf';
         link.click();
     }
